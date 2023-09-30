@@ -1,47 +1,24 @@
 const express = require('express');
 const sequelize = require('sequelize');
 const router = express.Router();
-/********************\
-     Models
-\********************/
-const db = require('../models');
-const User = db.User;
+/*-----controller-----*/
+const controller = require('../controllers/UserController');
 /********************\
         GET
 \********************/
-router.get('/', (req, res) => {
-    res.json({ message: 'Get All users' });
-});
-router.get('/:id', (req, res) => {
-    res.json({ message: 'Get one users' });
-});
+router.get('/', controller.getAllUser);
+router.get('/:id', controller.getOneUser);
 /********************\
-       POST
+        POST
 \********************/
-router.post('/:id', (req, res) => {
-    res.json({ message: `Hello${req.params.id}` });
-    // //寫入對映欄位名稱的資料內容;
-    // User.create({
-    //     // 記得 value 字串要加上引號
-    //     firstName: 'A!',
-    //     lastName: 'B@',
-    //     email: 'Test@example.com',
-    // }).then(() => {
-    //     // 執行成功後會印出文字
-    //     console.log('successfully created!!');
-    // });
-});
+router.post('/addUser', controller.addUser);
 /********************\
         PUT
 \********************/
-router.put('/:id', (req, res) => {
-    res.json({ message: `Update${req.params.id}` });
-});
+router.put('/:id', controller.updateUser);
 /********************\
         DELETE
 \********************/
-router.delete('/:id', (req, res) => {
-    res.json({ message: `Delete${req.params.id}` });
-});
+router.delete('/:id', controller.deleteUser);
 
 module.exports = router;

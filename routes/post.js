@@ -3,9 +3,7 @@ const router = express.Router();
 const sequelize = require('sequelize');
 /*-----controller-----*/
 const controller = require('../controllers/PostController');
-/********************\
-     Models
-\********************/
+
 /********************\
         GET
 \********************/
