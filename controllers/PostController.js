@@ -3,26 +3,48 @@ const { Sequelize } = require('sequelize');
      Models
 \********************/
 const db = require('../models');
-const User = db.User;
+const Post = db.Post;
 module.exports = {
-    // /post
-    get: (req, res) => {
-        res.json({ content: 'post content' });
+    // 1. get all Post
+    get: async (req, res) => {
+        let posts = await Post.findALL({});
+        res.status(200).send(Post.title);
     },
-    // /post/:id
-    getonepost: (req, res) => {
-        res.json({ message: 'Get one POST' });
+    // 2. get One Post title
+    getonepost: async (req, res) => {
+        let id = req.params.id;
+        let post = await Post.findOne({ where: { title: title } });
+        res.status(200).send(post.title);
     },
-    // /post/:id
-    post: (req, res) => {
-        res.json({ message: `POST ${req.params.id}` });
+    // 3. new post
+    addpost: async (req, res) => {
+        let info = {
+            //title
+            title: req.body.title,
+            //slug
+            slug: req.body.slug,
+            //summary
+            summary: req.body.summary,
+            //content
+            content: req.body.comtent,
+            //updateAt
+            updatedAt: req.body.updatedAt,
+            //userid
+            userid: req.body.userid,
+        };
+        const newpost = await Post.create(info);
+        res.status(200).send(`title:${info.title}, summary: ${info.summary}`);
     },
-    // /post/:id
-    put: (req, res) => {
-        res.json({ message: `Update${req.params.id}` });
+    // 4. update post
+    updatePost: async (req, res) => {
+        let id = req.params.id;
+        let post = await Post.update(req.body, { where: { id: id } });
+        res.status(200).send(Post.title);
     },
-    // /post/:id
-    delete: (req, res) => {
-        res.json({ message: `Delete${req.params.id}` });
+    //  5. delete post
+    deletePost: async (req, res) => {
+        let id = req.params.id;
+        await User.destroy({ where: { id: id } });
+        res.status(200).send('Post is deleted!!');
     },
 };

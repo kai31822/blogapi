@@ -2,21 +2,21 @@ const express = require('express');
 const router = express.Router();
 const sequelize = require('sequelize');
 /*-----controller-----*/
-const controller = require('../controllers/PostController');
+const controller = require('../controllers/CommentController');
 
 /********************\
         GET
 \********************/
-router.get('/', controller.get);
-router.get('/:id', controller.getonepost);
+router.get('/', controller.getallcomment);
+router.get('/:id', controller.getonecomment);
 /********************\
        POST
 \********************/
-router.post('/:id', controller.addpost);
+router.post('/:id', controller.addcomment);
 /********************\
         PUT
 \********************/
-router.put('/:id', controller.updatePost);
+router.put('/:id', controller.updateComment);
 /********************\
         DELETE
 \********************/
