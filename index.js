@@ -21,9 +21,7 @@ app.use('/post', postRoutes);
 /********************\
       IndexRoutes
 \********************/
-//get
 app.get('/', (request, response) => {
-    // response.status(200).send('Hello from Homepage');
     response.status(200).json({ message: 'Hello from Homepage' });
 });
 
