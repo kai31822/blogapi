@@ -7,19 +7,19 @@ const controller = require('../controllers/TagController');
 /********************\
         GET
 \********************/
-router.get('/', controller.get);
-router.get('/:id', controller.getonepost);
+router.get('/', controller.getallTag);
+router.get('/:tag', controller.getoneTag);
 /********************\
        POST
 \********************/
-router.post('/:id', controller.post);
+router.post('/addTag', controller.addTag);
 /********************\
         PUT
 \********************/
-router.put('/:id', controller.put);
+router.put('/:tag', controller.updateTag);
 /********************\
         DELETE
 \********************/
-router.delete('/:id', controller.delete);
+router.delete('/:tag', controller.deleteTag);
 
 module.exports = router;

@@ -3,6 +3,9 @@ const bodyParser = require('body-parser');
 //import Routes
 const userRoutes = require('./routes/users');
 const postRoutes = require('./routes/post');
+const commentRoutes = require('./routes/comment');
+const tagRoutes = require('./routes/tag');
+const categoriesRoutes = require('./routes/categories');
 //import DBconnecter
 const { sequelize, connectToDB } = require('./connectToDB');
 
@@ -18,6 +21,9 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/user', userRoutes);
 app.use('/post', postRoutes);
+app.use('/comment', commentRoutes);
+app.use('/tag', tagRoutes);
+app.use('/category', categoriesRoutes);
 /********************\
       IndexRoutes
 \********************/
