@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             Post.belongsTo(models.User, { foreignKey: 'userid' });
             Post.hasMany(models.Comment, { foreignKey: 'commentid' });
-            Post.hasMany(models.Categories, { foreignKey: 'postid' });
         }
     }
 
@@ -26,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
             title: DataTypes.STRING,
             slug: DataTypes.STRING,
             summary: DataTypes.STRING,
-            category: DateTypes.STRING,
+            category: DataTypes.STRING,
             content: DataTypes.TEXT,
             userid: DataTypes.INTEGER,
             commentid: DataTypes.INTEGER,

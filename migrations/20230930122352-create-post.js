@@ -22,12 +22,8 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             //category
-            categoryid: {
-                type: Sequelize.INTEGER,
-                references: {
-                    model: 'categories', // 引用的 table
-                    key: 'categoryid', // 引用的欄位
-                },
+            category: {
+                type: Sequelize.STRING,
             },
             //content
             content: {
