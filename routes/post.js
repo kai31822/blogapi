@@ -8,7 +8,7 @@ const controller = require('../controllers/PostController');
         GET
 \********************/
 router.get('/', controller.get);
-router.get('/:id', controller.getonepost);
+router.get('/:title', controller.getonepost);
 /********************\
        POST
 \********************/
@@ -16,10 +16,10 @@ router.post('/addpost', controller.addpost);
 /********************\
         PUT
 \********************/
-router.put('/:id', controller.updatePost);
+router.put('/:title', controller.updatePost);
 /********************\
         DELETE
 \********************/
-router.delete('/:id', controller.deletePost);
+router.delete('/:title', controller.deletePost);
 
 module.exports = router;

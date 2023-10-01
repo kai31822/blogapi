@@ -13,7 +13,7 @@ module.exports = {
     },
     // 2. get One Post title
     getonepost: async (req, res) => {
-        let id = req.params.id;
+        let title = req.params.title;
         let post = await Post.findOne({ where: { title: title } });
         res.status(200).send(post);
     },
@@ -25,7 +25,7 @@ module.exports = {
             //slug
             slug: req.body.slug,
             //category
-            category: req.body.category,
+            categoryid: req.body.categoryid,
             //summary
             summary: req.body.summary,
             //content
@@ -40,14 +40,14 @@ module.exports = {
     },
     // 4. update post
     updatePost: async (req, res) => {
-        let id = req.params.id;
-        let post = await Post.update(req.body, { where: { id: id } });
+        let title = req.params.title;
+        let post = await Post.update(req.body, { where: { title: title } });
         res.status(200).send(post);
     },
     //  5. delete post
     deletePost: async (req, res) => {
-        let id = req.params.id;
-        await User.destroy({ where: { id: id } });
+        let title = req.params.title;
+        await Post.destroy({ where: { title: title } });
         res.status(200).send('Post is deleted!!');
     },
 };
