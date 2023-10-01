@@ -7,7 +7,7 @@ const controller = require('../controllers/UserController');
         GET
 \********************/
 router.get('/', controller.getAllUser);
-router.get('/:id', controller.getOneUser);
+router.get('/:username', controller.getOneUser);
 /********************\
         POST
 \********************/
@@ -15,7 +15,7 @@ router.post('/addUser', controller.addUser);
 /********************\
         PUT
 \********************/
-router.put('/:id', controller.updateUser);
+router.put('/:username', controller.updateUser);
 /********************\
         DELETE
 \********************/

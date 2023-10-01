@@ -12,7 +12,7 @@ router.get('/:id', controller.getonecomment);
 /********************\
        POST
 \********************/
-router.post('/:id', controller.addcomment);
+router.post('/addcomment', controller.addcomment);
 /********************\
         PUT
 \********************/

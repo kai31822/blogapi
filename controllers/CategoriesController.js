@@ -8,7 +8,7 @@ const Category = db.Categories;
 module.exports = {
     // 1. get all category
     getallCategory: async (req, res) => {
-        let category = await Category.findALL({});
+        let category = await Category.findAll({});
         res.status(200).send(Category.category);
     },
     // 2. get One category

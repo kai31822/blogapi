@@ -4,11 +4,12 @@ const { Sequelize } = require('sequelize');
 \********************/
 const db = require('../models');
 const Comment = db.Comment;
+const User = db.User;
 
 module.exports = {
     // 1. get all Post
     getallcomment: async (req, res) => {
-        let posts = await Post.findALL({});
+        let posts = await Post.findAll({});
         res.status(200).send(Post.title);
     },
     // 2. get One Post title

@@ -8,14 +8,14 @@ const Tag = db.Tag;
 module.exports = {
     // 1. get all tag
     getallTag: async (req, res) => {
-        let tag = await Tag.findALL({});
-        res.status(200).send(Tag.tag);
+        let tag = await Tag.findAll({});
+        res.status(200).send(tag);
     },
     // 2. get One tag
     getoneTag: async (req, res) => {
         let tag = req.params.tag;
         let findtag = await Tag.findOne({ where: { tagname: tag } });
-        res.status(200).send(findcategory.category);
+        res.status(200).send(findtag);
     },
     // 3. new tag
     addTag: async (req, res) => {
@@ -30,7 +30,7 @@ module.exports = {
     updateTag: async (req, res) => {
         let tag = req.params.tag;
         let updatetag = await Tag.update(req.body, { where: { tagname: tag } });
-        res.status(200).send(updatetag.tag);
+        res.status(200).send('Tag is update!!');
     },
     //  5. delete tag
     deleteTag: async (req, res) => {

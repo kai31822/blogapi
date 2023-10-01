@@ -12,7 +12,7 @@ router.get('/:id', controller.getonepost);
 /********************\
        POST
 \********************/
-router.post('/:id', controller.addpost);
+router.post('/addpost', controller.addpost);
 /********************\
         PUT
 \********************/

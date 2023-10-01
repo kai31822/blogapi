@@ -4,10 +4,11 @@ const { Sequelize } = require('sequelize');
 \********************/
 const db = require('../models');
 const Post = db.Post;
+
 module.exports = {
     // 1. get all Post
     get: async (req, res) => {
-        let posts = await Post.findALL({});
+        let posts = await Post.findAll({});
         res.status(200).send(Post.title);
     },
     // 2. get One Post title
@@ -26,9 +27,7 @@ module.exports = {
             //summary
             summary: req.body.summary,
             //content
-            content: req.body.comtent,
-            //updateAt
-            updatedAt: req.body.updatedAt,
+            content: req.body.content,
             //userid
             userid: req.body.userid,
         };

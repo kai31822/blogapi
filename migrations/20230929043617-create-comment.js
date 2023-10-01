@@ -3,7 +3,7 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('Comments', {
-            id: {
+            commentid: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
@@ -17,7 +17,7 @@ module.exports = {
                 allowNull: false,
                 references: {
                     model: 'users', // 引用的 table
-                    key: 'id', // 引用的欄位
+                    key: 'userid', // 引用的欄位
                 },
             },
             createdAt: {

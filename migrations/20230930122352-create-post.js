@@ -3,7 +3,7 @@
 module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('Posts', {
-            id: {
+            postid: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
@@ -21,13 +21,17 @@ module.exports = {
             summary: {
                 type: Sequelize.STRING,
             },
+            //category
+            categoryid: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'categories', // 引用的 table
+                    key: 'categoryid', // 引用的欄位
+                },
+            },
             //content
             content: {
                 type: Sequelize.TEXT,
-            },
-            //updatedAt
-            updatedAt: {
-                type: Sequelize.DATE,
             },
             //
             userid: {
@@ -35,7 +39,7 @@ module.exports = {
                 allowNull: false,
                 references: {
                     model: 'users', // 引用的 table
-                    key: 'id', // 引用的欄位
+                    key: 'userid', // 引用的欄位
                 },
             },
             commentid: {
@@ -43,7 +47,7 @@ module.exports = {
                 allowNull: false,
                 references: {
                     model: 'comments', // 引用的 table
-                    key: 'id', // 引用的欄位
+                    key: 'commentid', // 引用的欄位
                 },
             },
             createdAt: {

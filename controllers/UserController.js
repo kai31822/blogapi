@@ -20,20 +20,20 @@ module.exports = {
     },
     // 2. get all User
     getAllUser: async (req, res) => {
-        let users = await User.findALL({});
-        res.status(200).send(User.userName);
+        let users = await User.findAll({});
+        res.status(200).send(users);
     },
     // 3. get One User
     getOneUser: async (req, res) => {
-        let id = req.params.id;
-        let user = await User.findOne({ where: { id: id } });
-        res.status(200).send(user.userName);
+        let username = req.params.username;
+        let user = await User.findOne({ where: { username: username } });
+        res.status(200).send(user);
     },
     // 4.  update User
     updateUser: async (req, res) => {
-        let id = req.params.id;
-        let user = await User.update(req.body, { where: { id: id } });
-        res.status(200).send(User.userName);
+        let username = req.params.username;
+        let user = await User.update(req.body, { where: { username: username } });
+        res.status(200).send(user);
     },
     // 5. delete User
     deleteUser: async (req, res) => {
