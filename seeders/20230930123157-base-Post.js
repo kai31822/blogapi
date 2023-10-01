@@ -15,7 +15,7 @@ module.exports = {
                     title: 'post1',
                     slug: '',
                     summary: 'summary1',
-                    category: 'c1',
+                    category: 1,
                     content:
                         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates dolores aspernatur maiores officiis reprehenderit deserunt eos itaque illo vero ducimus.',
                     userid: 1,

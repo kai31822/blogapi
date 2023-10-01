@@ -23,7 +23,12 @@ module.exports = {
             },
             //category
             category: {
-                type: Sequelize.STRING,
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                references: {
+                    model: 'categories', // 引用的 table
+                    key: 'categoryid', // 引用的欄位
+                },
             },
             //content
             content: {
@@ -38,6 +43,7 @@ module.exports = {
                     key: 'userid', // 引用的欄位
                 },
             },
+            //
             commentid: {
                 type: Sequelize.INTEGER,
                 allowNull: false,

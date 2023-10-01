@@ -10,11 +10,17 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             Comment.belongsTo(models.User, { foreignKey: 'userid' });
-            Comment.belongsTo(models.Post, { foreignKey: 'commentid' });
+            Comment.hasMany(models.Post, { foreignKey: 'commentid' });
         }
     }
     Comment.init(
         {
+            commentid: {
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true,
+                type: DataTypes.INTEGER,
+            },
             content: DataTypes.STRING,
         },
         {
