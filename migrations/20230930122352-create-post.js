@@ -46,7 +46,7 @@ module.exports = {
             //
             commentid: {
                 type: Sequelize.INTEGER,
-                allowNull: false,
+                allowNull: true,
                 references: {
                     model: 'comments', // 引用的 table
                     key: 'commentid', // 引用的欄位
